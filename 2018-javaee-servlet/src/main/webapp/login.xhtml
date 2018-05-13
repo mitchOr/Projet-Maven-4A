@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+                template="/WEB-INF/templates/default.xhtml">
+
+    <ui:define name="content">
+        <h4>Welcome, please login using the correct password magic.</h4>
+
+        <h:messages styleClass="alert alert-error"/>
+
+        <h:form class="form-horizontal">
+            <div class="control-group">
+                
+                <h:outputLabel class="control-label" for="inputNickName">Username</h:outputLabel>
+			<div class="controls">               
+                    <h:inputText id="inputNickName" a:placeholder="Username" value="#{userInfo.name}" /> 
+                </div>
+            </div>
+            <div class="control-group">
+                <h:outputLabel class="control-label" for="inputPassword">Password</h:outputLabel>
+                <div class="controls">                 
+                    <h:inputSecret id="inputPassword" a:placeholder="Password" value="#{userInfo.password}"/> 
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+				 <h:commandButton class="btn" action="#{authenticationService.login(userInfo)}" value="Log me in"/>
+					
+                </div>
+            </div>
+        </h:form>
+    </ui:define>
+
+</ui:composition>
